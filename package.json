@@ -1,0 +1,79 @@
+{
+  "name": "sanity-plugin-environment-alert",
+  "version": "1.0.0",
+  "description": "Sanity Studio plugin that shows a banner in the navbar indicating the current dataset or environment.",
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "environment",
+    "dataset",
+    "navbar"
+  ],
+  "license": "MIT",
+  "author": "Marcin Zajadlo <marcin@increo.no>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcinzajadlo/sanity-plugin-environment-alert.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcinzajadlo/sanity-plugin-environment-alert/issues"
+  },
+  "homepage": "https://github.com/marcinzajadlo/sanity-plugin-environment-alert#readme",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "browserslist": "extends @sanity/browserslist-config",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
+    "watch": "pkg-utils watch --strict",
+    "link-watch": "plugin-kit link-watch",
+    "prepublishOnly": "pnpm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "sanityV2Json": false,
+      "eslintImports": false
+    }
+  },
+  "dependencies": {
+    "@sanity/incompatible-plugin": "^1.0.4"
+  },
+  "devDependencies": {
+    "@sanity/browserslist-config": "^1.0.5",
+    "@sanity/pkg-utils": "^7.5.1",
+    "@sanity/plugin-kit": "^4.0.19",
+    "@sanity/ui": "^3.2.0",
+    "@types/react": "^19.2.0",
+    "react": "^19.2.0",
+    "rimraf": "^6.0.1",
+    "sanity": "^5.22.0",
+    "typescript": "^5.9.0"
+  },
+  "peerDependencies": {
+    "@sanity/ui": "^2 || ^3",
+    "react": "^18 || ^19",
+    "sanity": "^3 || ^4 || ^5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
